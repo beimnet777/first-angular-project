@@ -1,0 +1,33 @@
+
+<h2 style="padding:10px 150px">Products</h2>
+<hr>
+
+<div style="display:flex; justify-content:space-between; margin:50px 150px"><div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{product["name"] | uppercase}}</h5>
+      <h6>Price: {{product.price}}</h6>
+      <p class="card-text">{{product.description}}</p>
+      <a href="#" class="btn btn-primary">VEIW DETAIL</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="product2.imageUrl" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{product2["name"] | uppercase}}</h5>
+      <h6>Price: {{product2.price}} (50% discount offer for you!)</h6>
+      <p class="card-text">{{product2.description}}</p>
+      <a href="#" class="btn btn-primary">VEIW DETAIL</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="product3.imageUrl" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{product3["name"] | uppercase}}</h5>
+      <h6>Price: {{product3.price}}</h6>
+      <p class="card-text">{{product3.description}}</p>
+      <a href="#" class="btn btn-primary">VEIW DETAIL</a>
+    </div>
+  </div>
+</div>
+  
