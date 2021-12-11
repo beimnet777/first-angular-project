@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CART, Product, PRODUCTS} from './product.object';
 @Component({
   selector: 'app-product',
@@ -9,7 +9,7 @@ import { CART, Product, PRODUCTS} from './product.object';
 export class ProductComponent implements OnInit {
 
   
-  constructor(private router: Router){ }
+  constructor(private router: Router,private route: ActivatedRoute){ }
  
 
   onViewDetail(id=-1){
@@ -40,7 +40,12 @@ export class ProductComponent implements OnInit {
     this.shoplist.push(x);
   }
   remove(id:number){
-
+    var index=0;
+    for (let cartx of this.shoplist){
+      if (cartx.id ==id){break }
+      index++;
+    }
+    this.shoplist.splice(index, 1);
   }
 
 }

@@ -1,20 +1,25 @@
-<table class="table table-dark">
+<head><style>
+  button{
+    background-color: #086afc;
+    border: blue 2px solid;
+    border-radius: 5px;
+    color: white;
+}
+</style></head>
+
+
+  <table class="table">
     <thead>
-      <th>id</th>
-      <th>id</th>
-      <th>id</th>
+      
     </thead>
     <tbody>
-        
-        <tr *ngFor="let customer of customerList">
-            <p *ngIf="customerList.length == 0"> no item to display</p>
-            <th scope="row">{{customer.id}}</th>
-            <td colspan="2" class="table-active">{{customer.name}}</td>
-            <td>{{customer.email}}</td>
-            <th><button (click)="update(customer.id)">Update</button></th>
-            <th><button (click)="add(-1)">add</button></th>
-            <th><button (click)="deleteProduct(customer.id)">delete</button></th>
-          </tr>
-      
+      <tr *ngFor="let customer of customerList">
+        <th scope="row">{{customer.id}}</th>
+        <td colspan="2">{{customer.name}}</td>
+        <td>{{customer.email}}</td>
+        <th ><button (click)="update(customer.id)">Update</button></th>
+        <th ><button (click)="add(-1)">add</button></th>
+        <th ><button (click)="deleteProduct(customer.id)">delete</button></th>
+      </tr>
     </tbody>
   </table>
