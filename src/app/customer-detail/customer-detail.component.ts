@@ -29,6 +29,11 @@ export class CustomerDetailComponent implements OnInit {
           for (let customer3 of this.customers){
             if (customer3.id == param['id']){ this.selectedCustomer = customer3; }
           }
+          document.getElementById("exampleInputEmail1")?.setAttribute('placeholder', this.selectedCustomer.name);
+          document.getElementById("exampleInputPassword1")?.setAttribute('placeholder', this.selectedCustomer.email);
+          
+          
+
       }
     );
 
@@ -37,7 +42,7 @@ export class CustomerDetailComponent implements OnInit {
     let x=b.value;
    this.selectedCustomer['name']=x['name']
    this.selectedCustomer['email']=x['email']
-   this.selectedCustomer['id']=x['id']
+   
     this.router.navigateByUrl('customer/management/');
 
 }

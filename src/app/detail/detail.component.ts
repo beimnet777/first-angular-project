@@ -30,11 +30,15 @@ export class DetailComponent implements OnInit {
           for (let product of this.products){
             if (product.id == param['id']){ this.selectedProduct = product; }
           }
+          document.getElementById("exampleInputEmail1")?.setAttribute('placeholder', this.selectedProduct.name);
+          document.getElementById("exampleInputPassword1")?.setAttribute('placeholder', String(this.selectedProduct.price))
+          
       }
     );
 
   }
   updateProduct(f:NgForm){
+    
     let x=f.value;
    this.selectedProduct['name']=x['name']
    this.selectedProduct['price']=x['price']

@@ -1,13 +1,17 @@
+<head><style>#hover:hover{color: white;
+  text-align: center;}
+#card:hover{transform: scale(1.1);
+transition-duration: 500ms;}</style></head>
 <div style="display: flex;">
 <h2 style="padding:10px 150px">Products</h2>
-<button style="display:inline; border:2px gray solid; box-shadow:3px 2px black ;align-self:flex-end" (click)="customer()">customer</button>
+<button style="display:inline; border:2px rgb(6, 10, 17) solid; box-shadow:3px 2px rgb(0, 0, 0) ;align-self:flex-end" (click)="customer()">customer</button>
 <hr>
 </div>
-<div id="cart" style="border: rgb(0, 0, 0) 2px solid; width:15%;border-radius:5px;float:right;background:gray">
-  selected products {{shoplist.length}}<br><a href="#shopcart">see detail</a></div>
+<div id="cart" style="border: rgb(0, 0, 0) 2px solid; border-radius:5px;float:right;background:rgb(71, 177, 219);font-size:large;font-weight:bold;padding:10px;margin-right:10px;position:fixed;right:5px;">
+  products {{shoplist.length}}<br>PRICE:{{value}}<br><a id="hover"style="text-decoration:none;"href="#shopcart">see detail</a></div>
 <div style="display:flex; justify-content:center; flex-wrap:wrap; margin:50px 150px">
   <p style="font-size:50px; font-weight:bolder"class="card-text" *ngIf="productList.length == 0"> no item to display</p>
-  <div class="card" *ngFor="let product of productList" style="width: 18rem;">
+  <div class="card" *ngFor="let product of productList" style="width: 18rem;" id="card">
     <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{product["name"] | uppercase}}</h5>
@@ -16,19 +20,27 @@
       <a  class="btn btn-primary" (click)="onViewDetail(product.id)">UPDATE</a>
       <a  style="margin:20px"class="btn btn-primary" (click)="deleteProduct(product.id)">DELETE</a>
       <a  style="margin:20px"class="btn btn-primary" (click)="addcart(product)">ADD TO CART</a>
+      <a  style="margin:20px; margin:auto;"class="btn btn-primary " (click)="addProduct(-1)">ADD</a>
       
     </div>
   </div>
   <br>
-  <button  style="margin:20px;  border: 2px black;" (click)="addProduct(-1)">add</button>
+  <div>
+  
 
 
 
 <br>
 <br><br><br><br>
+<br>
+<br><br><br><br>
+<br>
+<br>
+<br><br><br><br>
+<br><br><br><br>
 <div></div>
   <div id="shopcart" style="display: flex;width:60%;flex-wrap:wrap;margin:auto;margin-top:120px">
-    <h1>CART</h1>
+    <br><h1>CART</h1>
     <div class="card" *ngFor="let cartx of shoplist">
       <h5 class="card-header">{{cartx.name}}</h5>
       <div class="card-body">

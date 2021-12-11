@@ -23,6 +23,13 @@ export class ProductComponent implements OnInit {
   }
   productList = PRODUCTS;
   shoplist=CART
+  value:number | undefined;
+  beimnet(){
+    var sum=0;
+  for(let o of this.shoplist){sum+=o.price}
+  this.value=sum;
+  
+}
   deleteProduct(id:number){
    var index=0;
     for (let product of PRODUCTS){
@@ -38,6 +45,7 @@ export class ProductComponent implements OnInit {
   }
   addcart(x:Product){
     this.shoplist.push(x);
+    this.beimnet()
   }
   remove(id:number){
     var index=0;
@@ -46,6 +54,7 @@ export class ProductComponent implements OnInit {
       index++;
     }
     this.shoplist.splice(index, 1);
+    this.beimnet()
   }
 
 }
