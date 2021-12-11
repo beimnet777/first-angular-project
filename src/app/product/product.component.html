@@ -1,13 +1,15 @@
 <head><style>#hover:hover{color: white;
   text-align: center;}
 #card:hover{transform: scale(1.1);
-transition-duration: 500ms;}</style></head>
+transition-duration: 500ms;}
+#cart:hover{border-left-color: rgb(136, 136, 187);
+ }</style></head>
 <div style="display: flex;">
 <h2 style="padding:10px 150px">Products</h2>
 <button style="display:inline; border:2px rgb(6, 10, 17) solid; box-shadow:3px 2px rgb(0, 0, 0) ;align-self:flex-end" (click)="customer()">customer</button>
 <hr>
 </div>
-<div id="cart" style="border: rgb(0, 0, 0) 2px solid; border-radius:5px;float:right;background:rgb(71, 177, 219);font-size:large;font-weight:bold;padding:10px;margin-right:10px;position:fixed;right:5px;">
+<div id="cart" style="border-left: rgb(0, 0, 0) 5px solid; border-radius:5px;float:right;background:rgb(71, 177, 219);font-size:large;font-weight:bold;padding:10px;margin-right:10px;position:fixed;right:5px;">
   products {{shoplist.length}}<br>PRICE:{{value}}<br><a id="hover"style="text-decoration:none;"href="#shopcart">see detail</a></div>
 <div style="display:flex; justify-content:center; flex-wrap:wrap; margin:50px 150px">
   <p style="font-size:50px; font-weight:bolder"class="card-text" *ngIf="productList.length == 0"> no item to display</p>
