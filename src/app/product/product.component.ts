@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from './product.object';
+import { Router } from '@angular/router';
+import { CART, Product, PRODUCTS} from './product.object';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -7,32 +8,39 @@ import { Product } from './product.object';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
-  product: Product = {
-    id: 1,
-    name: 'asus',
-    price: 2000,
-    imageUrl: "assets/download.jfif",
-    description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-  }
-  product2: Product = {
-    id: 1,
-    name: 'pavilion',
-    price: 780,
-    imageUrl: "assets/download.jfif",
-    description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-  }
-  product3: Product = {
-    id: 1,
-    name: 'dell',
-    price: 250,
-    imageUrl: "assets/download.jfif",
-    description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-  }
+  
+  constructor(private router: Router){ }
+ 
 
-
+  onViewDetail(id=-1){
+    this.router.navigateByUrl('/products/detail/' + id);
+		}
+   addProduct(id:number){
+      this.router.navigateByUrl('/products/detail/' + id);
+      }
   ngOnInit(): void {
     
+  }
+  productList = PRODUCTS;
+  shoplist=CART
+  deleteProduct(id:number){
+   var index=0;
+    for (let product of PRODUCTS){
+      if (product.id ==id){break }
+      index++;
+    }
+    
+    this.productList.splice(index, 1);
+  }
+  customer(){
+    this.router.navigateByUrl('customer/management/' );
+
+  }
+  addcart(x:Product){
+    this.shoplist.push(x);
+  }
+  remove(id:number){
+
   }
 
 }

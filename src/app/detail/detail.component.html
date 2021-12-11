@@ -1,0 +1,37 @@
+<head><style>.invisible{
+  display: none;}
+</style></head>
+<form style="width:400px; margin:auto" (ngSubmit)="updateProduct(f)" #f=ngForm id="update">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Products</label>
+      <input style="width: 400px; box-shadow:2px 4px black" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name" ngModel>
+      
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Price</label>
+      <input style="width: 400px; box-shadow:2px 4px black" type="number" class="form-control" id="exampleInputPassword1" name="price" ngModel>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <form style="width:400px; margin:auto" (ngSubmit)="addProduct(g)" #g=ngForm id='add' >
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">name</label>
+      <input style="width: 400px; box-shadow:2px 4px black" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name" ngModel>
+      
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">id</label>
+      <input style="width: 400px; box-shadow:2px 4px black" type="number" class="form-control" id="exampleInputPassword1" name="id" ngModel>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">description</label>
+      <input style="width: 400px; box-shadow:2px 4px black" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="description" ngModel>
+      
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">price</label>
+      <input style="width: 400px; box-shadow:2px 4px black" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="price" ngModel>
+      
+    </div>
+    <button type="submit" class="btn btn-primary">add</button>
+  </form>

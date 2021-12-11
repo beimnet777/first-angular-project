@@ -1,33 +1,43 @@
-
+<div style="display: flex;">
 <h2 style="padding:10px 150px">Products</h2>
+<button style="display:inline; border:2px gray solid; box-shadow:3px 2px black ;align-self:flex-end" (click)="customer()">customer</button>
 <hr>
+</div>
 
-<div style="display:flex; justify-content:space-between; margin:50px 150px"><div class="card" style="width: 18rem;">
+<div style="display:flex; justify-content:center; flex-wrap:wrap; margin:50px 150px">
+  <p style="font-size:50px; font-weight:bolder"class="card-text" *ngIf="productList.length == 0"> no item to display</p>
+  <div class="card" *ngFor="let product of productList" style="width: 18rem;">
     <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{product["name"] | uppercase}}</h5>
-      <h6>Price: {{product.price}}</h6>
+      <h6>Price: {{product.price}}</h6><p class="card-text" *ngIf="product.price < 6000">$ {{product.price}} (*On Discount)</p>
       <p class="card-text">{{product.description}}</p>
-      <a href="#" class="btn btn-primary">VEIW DETAIL</a>
+      <a  class="btn btn-primary" (click)="onViewDetail(product.id)">UPDATE</a>
+      <a  style="margin:20px"class="btn btn-primary" (click)="deleteProduct(product.id)">DELETE</a>
+      <a  style="margin:20px"class="btn btn-primary" (click)="addcart(product)">ADD TO CART</a>
+      
     </div>
   </div>
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" [src]="product2.imageUrl" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{product2["name"] | uppercase}}</h5>
-      <h6>Price: {{product2.price}} (50% discount offer for you!)</h6>
-      <p class="card-text">{{product2.description}}</p>
-      <a href="#" class="btn btn-primary">VEIW DETAIL</a>
+  <br>
+  <button  style="margin:20px;  border: 2px black;" (click)="addProduct(-1)">add</button>
+
+
+
+<br>
+<br><br><br><br>
+  <div id="shoping" style="display: flex;width:60%;flex-wrap:wrap;margin:auto;">
+    <div class="card" *ngFor="let cartx of shoplist">
+      <h5 class="card-header">{{cartx.name}}</h5>
+      <div class="card-body">
+        <h5 class="card-title">{{cartx.price}}</h5>
+        <p class="card-text">{{cartx.description}}</p>
+        <a  (click)="remove(cartx.id)" class="btn btn-primary">remove</a>
+      </div>
     </div>
   </div>
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" [src]="product3.imageUrl" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{product3["name"] | uppercase}}</h5>
-      <h6>Price: {{product3.price}}</h6>
-      <p class="card-text">{{product3.description}}</p>
-      <a href="#" class="btn btn-primary">VEIW DETAIL</a>
-    </div>
-  </div>
-</div>
+  
+  
+
+
+
   
